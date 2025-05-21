@@ -19,7 +19,7 @@ TOKEN_FILE_PATH = os.path.join(current_dir, 'tokens', 'new-project-01-449515-0a3
 # Set up logging
 logger = logging.getLogger('data_fetch')
 logger.setLevel(logging.INFO)
-handler = logging.FileHandler(os.path.join(root_dir, 'data_fetch_debug.log'))
+handler = logging.FileHandler(os.path.join(current_dir, 'data_fetch_debug.log'))
 handler.setFormatter(logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s'))
 logger.addHandler(handler)
 
@@ -84,7 +84,7 @@ def get_transactions(spreadsheet_name: str, worksheet_name: str) -> pd.DataFrame
         # Ensure all expected fields are present
         for field in ['DATE', 'DESCRIPTION', 'CATEGORY', 'ACCOUNT', 'TYPE', 'MONTH']:
             if field not in df.columns:
-            df[field] = ""
+                df[field] = ""
 
         elapsed = time.time() - start_time
         return df

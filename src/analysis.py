@@ -8,7 +8,6 @@ This module provides functions for analyzing financial data including:
 """
 
 import pandas as pd
-from typing import List, Tuple
 import logging
 
 
